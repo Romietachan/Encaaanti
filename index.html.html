@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encantillo - El Auténtico Arroz Criollo Mixto del Caribe</title>
+    <style>
+        :root {
+            --primary-orange: #E65100;
+            --secondary-yellow: #FFB300;
+            --accent-green: #2E7D32;
+            --bg-cream: #FFFDF9;
+            --text-dark: #212121;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        header {
+            background-color: #FFFFFF;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--secondary-yellow);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            color: var(--primary-orange);
+            font-size: 28px;
+            margin-bottom: 15px;
+            line-height: 1.25;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #424242;
+            margin-bottom: 25px;
+        }
+
+        .btn-cta {
+            background-color: var(--primary-orange);
+            color: #FFFFFF;
+            padding: 16px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(230, 81, 0, 0.4);
+        }
+
+        .micro-trust {
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .problem-solution {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .card-problem {
+            background-color: #FFEBEE;
+            border-left: 5px solid #E53935;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .card-solution {
+            background-color: #E8F5E9;
+            border-left: 5px solid var(--accent-green);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-orange);
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .ingredient-item {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #FFF3E0;
+        }
+
+        .ingredient-item .icon {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .menu-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .menu-table th {
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        .menu-table td {
+            padding: 14px;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        .price-badge {
+            font-weight: bold;
+            color: var(--primary-orange);
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        .promo-card {
+            background-color: #FFF8E1;
+            border: 2px dashed var(--secondary-yellow);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .promo-card h3 {
+            color: var(--primary-orange);
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .badge-tag {
+            background-color: var(--secondary-yellow);
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .step-item {
+            background: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .step-number {
+            background-color: var(--secondary-yellow);
+            color: #000;
+            font-weight: bold;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .faq-item {
+            background-color: white;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--secondary-yellow);
+        }
+
+        .faq-item h4 {
+            margin: 0 0 6px 0;
+            color: var(--primary-orange);
+        }
+
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #FFFFFF;
+            padding: 12px 20px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.12);
+            text-align: center;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .btn-sticky {
+            background-color: var(--primary-orange);
+            color: #FFFFFF;
+            padding: 14px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Encant<span>illo</span> 🌾</div>
+    </header>
+
+    <div class="container">
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>¡El auténtico sabor del Caribe en tu descanso!</h1>
+            <p>Arroz Mixto artesanal (12 oz) cargado con carne de res, cerdo, pollo, chorizo, salchicha, mazorca y verduras. ¡Servido al instante en la Feria Empresarial!</p>
+            <a href="https://instagram.com/Encantillo_coljp" class="btn-cta">📩 Pedir por DM a @Encantillo_coljp</a>
+            <div class="micro-trust">📍 Stand en la Feria Empresarial • Preparado al instante • Respuesta rápida por DM</div>
+        </section>
+
+        <!-- PROBLEMA VS SOLUCIÓN -->
+        <section class="problem-solution">
+            <div class="card-problem">
+                <h3 style="margin-top:0; color:#C62828;">¿Cansado de los mismos snacks?</h3>
+                <p style="margin:0;">Los paquetes procesados del colegio no te llenan ni te aportan la energía que necesitas durante la jornada.</p>
+            </div>
+            <div class="card-solution">
+                <h3 style="margin-top:0; color:var(--accent-green);">La Solución Encantillo 🍛</h3>
+                <p style="margin:0;">Un plato abundante de 12 oz de Arroz Criollo Mixto recién hecho, bien sazonado y cargado de sabor artesanal.</p>
+            </div>
+        </section>
+
+        <!-- INGREDIENTES -->
+        <section>
+            <h2 class="section-title">Ingredientes 100% Reales</h2>
+            <div class="ingredients-grid">
+                <div class="ingredient-item"><div class="icon">🥩</div><span>Res</span></div>
+                <div class="ingredient-item"><div class="icon">🐖</div><span>Cerdo</span></div>
+                <div class="ingredient-item"><div class="icon">🍗</div><span>Pollo</span></div>
+                <div class="ingredient-item"><div class="icon">🌭</div><span>Chorizo/Salchicha</span></div>
+                <div class="ingredient-item"><div class="icon">🌽</div><span>Mazorca</span></div>
+                <div class="ingredient-item"><div class="icon">🫑</div><span>Verduras</span></div>
+            </div>
+        </section>
+
+        <!-- MENÚ Y PROMOCIONES -->
+        <section>
+            <h2 class="section-title">Menú y Precios Transparentes</h2>
+            
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Opción</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Arroz Criollo Encantillo (12 oz)</strong></td>
+                        <td>Porción personal artesanal recién servida.</td>
+                        <td class="price-badge">$3.000 COP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Combo Encantillo + Bebida</strong></td>
+                        <td>Porción de 12 oz + Bebida fría a elección.</td>
+                        <td class="price-badge">$3.500 COP</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="section-title">🔥 Promociones Especiales</h2>
+
+            <div class="promo-card">
+                <span class="badge-tag">MÁS POPULAR</span>
+                <h3>👥 Promo Amigos (2 Arroces + 1 Bebida)</h3>
+                <p>Pide con un compañero: 2 platos de Arroz Criollo (12 oz c/u) + 1 bebida para compartir por solo <strong>$6.500 COP</strong>.</p>
+            </div>
+
+            <div class="promo-card">
+                <span class="badge-tag">AHORRO EXPRESO</span>
+                <h3>⏰ Promo Madrugador (Aparta por Instagram)</h3>
+                <p>Reserva tu plato con gaseosa enviando un DM a <strong>@Encantillo_coljp</strong> antes del descanso y llévatelo a solo <strong>$3.200 COP</strong> (Ahorras $300 y evitas filas).</p>
+            </div>
+        </section>
+
+        <!-- PASOS DE PEDIDO -->
+        <section>
+            <h2 class="section-title">¿Cómo hacer tu pedido?</h2>
+            <div class="steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div><strong>Escribe a nuestro Instagram:</strong> Envíanos un DM a <strong>@Encantillo_coljp</strong> con tu pedido.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div><strong>Indica la hora:</strong> Dinos a qué hora pasas por el stand durante el descanso.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div><strong>Disfruta bien caliente:</strong> Recoge tu plato de 12 oz y recárgate de energía en la feria.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <h4>¿Hasta qué hora puedo pedir la Promo Madrugador?</h4>
+                <p>Escríbenos por DM a @Encantillo_coljp desde temprano en la mañana antes del primer descanso para congelar el precio de $3.200 COP.</p>
+            </div>
+            <div class="faq-item">
+                <h4>¿Qué medios de pago aceptan?</h4>
+                <p>Aceptamos efectivo en el stand de la feria y transferencias por Nequi o Daviplata.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- BOTÓN FLOTANTE INFERIOR -->
+    <div class="sticky-bar">
+        <a href="https://instagram.com/Encantillo_coljp" class="btn-sticky">📩 Pedir por DM a @Encantillo_coljp</a>
+    </div>
+
+</body>
+</html>
